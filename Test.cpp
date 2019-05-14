@@ -23,7 +23,20 @@ int main(){
         testcase.setname("range check"); 
 
 		for(auto i : range(1,4)){
-			s += i;
+			s1 +=to_string (i);
+		}
+
+		for(auto i : range(1,4)){
+			s2 += to_string (i);
+		}
+		for(auto i : range(1,4)){
+			s3 += to_string (i);
+		}
+		for(auto i : range(1,4)){
+			s4 += to_string (i);
+		}
+		for(auto i : range(1,4)){
+			s5 += to_string (i);
 		}
 
 
