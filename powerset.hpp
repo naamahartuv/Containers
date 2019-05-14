@@ -9,7 +9,7 @@ template <typename T>
 class powersetClass
 {
 public:
-    powersetClass(T &a) : a(a)
+    powersetClass(const T &a) : a(a)
     {
     }
 
@@ -24,19 +24,20 @@ private:
         T itr;
 
     public:
-        iterator(T ptr) : itr(ptr)
+        iterator(const T &ptr) : itr(ptr)
         {
         }
 
         auto &operator*()
         {
-             return itr;
+            string s ="";
+             return s;
         }
 
         // ++i;
         iterator &operator++()
         {
-            itr++;
+            //itr++;
             return *this;
         }
 
@@ -44,7 +45,7 @@ private:
         const iterator operator++(int)
         {
             iterator tmp = *this;
-            itr++;
+            //itr++;
             return tmp;
         }
 
@@ -57,17 +58,17 @@ private:
         bool operator!=(const iterator &rhs) const
         {
             //return itr != rhs.itr;
-            return true;
+            return false;
         }
     }; // END OF CLASS ITERATOR
 
 public:
-    iterator begin()
+    iterator begin() const
     {
-        return iterator{ a};
+        return iterator{a};
     }
 
-    iterator end()
+    iterator end() const
     {
         return iterator{a};
     }

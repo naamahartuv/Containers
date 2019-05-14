@@ -7,7 +7,7 @@ template <typename T1, typename T2>
 class chainClass
 {
 public:
-    chainClass(T1 &a, T2 &b) : a(a), b(b)
+    chainClass(const T1 &a,const T2 &b) : a(a), b(b)
     {
     }
 
@@ -24,7 +24,7 @@ private:
         decltype(b.begin()) beginB;
 
     public:
-        iterator(decltype(a.begin()) ptr1, decltype(a.end()) ptr2, decltype(b.begin()) ptr3) : beginA(ptr1), endA(ptr2), beginB(ptr3)
+        iterator(const decltype(a.begin()) ptr1,const decltype(a.end()) ptr2,const decltype(b.begin()) ptr3) : beginA(ptr1), endA(ptr2), beginB(ptr3)
         {
         }
 
@@ -87,12 +87,12 @@ private:
     }; // END OF CLASS ITERATOR
 
 public:
-    iterator begin()
+    iterator begin() const
     {
         return iterator{a.begin() , a.end(), b.begin()};
     }
 
-    iterator end()
+    iterator end() const
     {
         return iterator{NULL, NULL, b.end()} ;
     }

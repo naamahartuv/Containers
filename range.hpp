@@ -5,7 +5,7 @@ template <typename T>
 class rangeClass
 {
 public:
-    rangeClass(T &a, T &b) : a(a), b(b)
+    rangeClass(const T &a,const T &b) : a(a), b(b)
     {
     }
 
@@ -20,7 +20,7 @@ private:
         T itr;
 
     public:
-        iterator(T ptr) : itr(ptr)
+        iterator(const T ptr) : itr(ptr)
         {
         }
 
@@ -56,12 +56,12 @@ private:
     }; // END OF CLASS ITERATOR
 
 public:
-    iterator begin()
+    iterator begin() const
     {
         return iterator{a};
     }
 
-    iterator end()
+    iterator end() const
     {
         return iterator{b};
     }
