@@ -10,8 +10,8 @@ public:
     }
 
 private:
-    T a;
-    T b;
+     T a;
+     T b;
 
     class iterator
     {

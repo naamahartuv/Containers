@@ -15,8 +15,8 @@ public:
     }
 
 private:
-    T1 a;
-    T2 b;
+     T1 a;
+     T2 b;
 
     class iterator
     {

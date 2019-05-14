@@ -12,8 +12,8 @@ public:
     }
 
 private:
-    T1 a;
-    T2 b;
+     T1 a;
+     T2 b;
 
     class iterator
     {
@@ -24,7 +24,7 @@ private:
         decltype(b.begin()) beginB;
 
     public:
-        iterator(const decltype(a.begin()) &ptr1,const decltype(a.end()) &ptr2,const decltype(b.begin()) ptr3) : beginA(ptr1), endA(ptr2), beginB(ptr3)
+        iterator(const decltype(a.begin()) &ptr1,const decltype(a.end()) &ptr2,const decltype(b.begin()) &ptr3) : beginA(ptr1), endA(ptr2), beginB(ptr3)
         {
         }
 
