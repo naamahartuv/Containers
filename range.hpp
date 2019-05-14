@@ -20,7 +20,7 @@ private:
         T itr;
 
     public:
-        iterator(const T ptr) : itr(ptr)
+        iterator(const T &ptr) : itr(ptr)
         {
         }
 

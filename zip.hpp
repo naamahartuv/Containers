@@ -26,7 +26,7 @@ private:
         decltype(b.begin()) beginB;
 
     public:
-        iterator(const decltype(a.begin()) ptr1, const decltype(b.begin()) ptr2) : beginA(ptr1),  beginB(ptr2)
+        iterator(const decltype(a.begin()) &ptr1, const decltype(b.begin()) &ptr2) : beginA(ptr1),  beginB(ptr2)
         {
         }
 
