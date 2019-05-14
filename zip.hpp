@@ -67,12 +67,12 @@ private:
         }
     }; // END OF CLASS ITERATOR
 public:
-    iterator begin() const
+    iterator begin() 
     {
         return iterator{a.begin(), b.begin()};
     }
 
-    iterator end() const
+    iterator end() 
     {
         return iterator{a.end(), b.end()};
     }
