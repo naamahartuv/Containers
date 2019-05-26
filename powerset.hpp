@@ -14,7 +14,7 @@ public:
     }
 
 private:
-     T a;
+    const T a;
     
 
     class iterator
@@ -28,7 +28,7 @@ private:
         {
         }
 
-        auto &operator*()
+        auto &operator*() const
         {
             string s ="";
              return s;

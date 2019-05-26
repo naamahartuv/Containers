@@ -10,8 +10,8 @@ public:
     }
 
 private:
-     T a;
-     T b;
+     const T a;
+     const T b;
 
     class iterator
     {
@@ -24,7 +24,7 @@ private:
         {
         }
 
-        T &operator*()
+        const T &operator*() const
         {
             return itr;
         }
@@ -56,12 +56,12 @@ private:
     }; // END OF CLASS ITERATOR
 
 public:
-    iterator begin() 
+    iterator begin() const
     {
         return iterator{a};
     }
 
-    iterator end() 
+    iterator end() const
     {
         return iterator{b};
     }
@@ -73,4 +73,4 @@ rangeClass<T> range(T a, T b)
     return rangeClass<T>{a, b};
 }
 
-}; // namespace itertools
+} // namespace itertools

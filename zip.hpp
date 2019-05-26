@@ -1,4 +1,4 @@
-#include <utility> ////
+#include <utility> 
 #include <iostream>
 #include <ostream>
 using std::pair;
@@ -15,8 +15,8 @@ public:
     }
 
 private:
-     T1 a;
-     T2 b;
+     const T1 a;
+     const T2 b;
 
     class iterator
     {
@@ -26,7 +26,7 @@ private:
         decltype(b.begin()) beginB;
 
     public:
-        iterator(const decltype(a.begin()) &ptr1, const decltype(b.begin()) &ptr2) : beginA(ptr1),  beginB(ptr2)
+        iterator(const T1 &ptr1, const T2 &ptr2) : beginA(ptr1),  beginB(ptr2)
         {
         }
 
@@ -67,12 +67,12 @@ private:
         }
     }; // END OF CLASS ITERATOR
 public:
-    iterator begin() 
+    iterator begin() const
     {
         return iterator{a.begin(), b.begin()};
     }
 
-    iterator end() 
+    iterator end() const
     {
         return iterator{a.end(), b.end()};
     }

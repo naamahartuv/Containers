@@ -1,19 +1,17 @@
 
-
-
 namespace itertools
 {
 template <typename T1, typename T2>
 class chainClass
 {
+private:
+    const T1 a;
+    const T2 b;
+
 public:
-    chainClass(const T1 &a,const T2 &b) : a(a), b(b)
+    chainClass(const T1 &a, const T2 &b) : a(a), b(b)
     {
     }
-
-private:
-     T1 a;
-     T2 b;
 
     class iterator
     {
@@ -24,14 +22,16 @@ private:
         decltype(b.begin()) beginB;
 
     public:
-        iterator(const decltype(a.begin()) &ptr1,const decltype(a.end()) &ptr2,const decltype(b.begin()) &ptr3) : beginA(ptr1), endA(ptr2), beginB(ptr3)
+        iterator(const T1 &ptr1, const T2 &ptr2, const T1 &ptr3)
+            : beginA(ptr1), beginB(ptr2), endA(ptr3)
         {
         }
 
-        auto &operator*()
+        const auto &operator*() const
         {
-            
-            if(beginA==endA){
+
+            if (beginA == endA)
+            {
                 return *beginB;
             }
             return *beginA;
@@ -40,13 +40,14 @@ private:
         // ++i;
         iterator &operator++()
         {
-            if(beginA == endA){
+            if (beginA == endA)
+            {
                 beginB++;
             }
-            else{
-             beginA++;   
+            else
+            {
+                beginA++;
             }
-            
 
             return *this;
         }
@@ -55,46 +56,48 @@ private:
         const iterator operator++(int)
         {
             iterator tmp = *this;
-            if(beginA == endA){
+            if (beginA == endA)
+            {
                 beginB++;
             }
-            else{
-              beginA++;  
+            else
+            {
+                beginA++;
             }
-            
+
             return tmp;
         }
 
         bool operator==(const iterator &rhs) const
         {
-            if(beginA == endA){
+            if (beginA == endA)
+            {
                 return beginB == rhs.beginB;
             }
-            
-            
+
             return beginA == rhs.beginA;
         }
 
         bool operator!=(const iterator &rhs) const
         {
-            if(beginA == endA){
+            if (beginA == endA)
+            {
                 return beginB != rhs.beginB;
             }
-            
-            
+
             return beginA != rhs.beginA;
         }
     }; // END OF CLASS ITERATOR
 
 public:
-    iterator begin() 
+    iterator begin() const
     {
-        return iterator{a.begin() , a.end(), b.begin()};
+        return iterator{a.begin(), a.end(), b.begin()};
     }
 
-    iterator end() 
+    iterator end() const
     {
-        return iterator{NULL, NULL, b.end()} ;
+        return iterator{NULL, NULL, b.end()};
     }
 };
 
