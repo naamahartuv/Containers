@@ -8,6 +8,9 @@ private:
     const T1 a;
     const T2 b;
 
+    typedef decltype(a.begin()) T1ITER;
+    typedef decltype(b.begin()) T2ITER;
+
 public:
     chainClass(const T1 &a, const T2 &b) : a(a), b(b)
     {
@@ -17,15 +20,19 @@ public:
     {
 
     private:
-        decltype(a.begin()) beginA;
-        decltype(a.end()) endA;
-        decltype(b.begin()) beginB;
+        T1ITER beginA;
+        T1ITER endA;
+        T2ITER beginB;
 
     public:
-        iterator(const T1 &ptr1, const T2 &ptr2, const T1 &ptr3)
-            : beginA(ptr1), beginB(ptr2), endA(ptr3)
+        iterator(const T1ITER &ptr1, const T1ITER &ptr3, const T2ITER &ptr2)
+            : beginA(ptr1), endA(ptr3), beginB(ptr2)
         {
         }
+
+        iterator (const T2ITER &ptr1): beginB(ptr1), beginA(NULL), endA(NULL){}
+
+        
 
         const auto &operator*() const
         {
@@ -97,7 +104,7 @@ public:
 
     iterator end() const
     {
-        return iterator{NULL, NULL, b.end()};
+        return iterator{ b.end()};
     }
 };
 

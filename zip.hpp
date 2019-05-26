@@ -18,15 +18,18 @@ private:
      const T1 a;
      const T2 b;
 
+    typedef decltype(a.begin()) T1ITER;
+    typedef decltype(b.begin()) T2ITER;
+
     class iterator
     {
 
     private:
-        decltype(a.begin()) beginA;
-        decltype(b.begin()) beginB;
+        T1ITER beginA;
+        T2ITER beginB;
 
     public:
-        iterator(const T1 &ptr1, const T2 &ptr2) : beginA(ptr1),  beginB(ptr2)
+        iterator(const T1ITER &ptr1, const T2ITER &ptr2) : beginA(ptr1),  beginB(ptr2)
         {
         }
 
